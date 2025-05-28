@@ -1,5 +1,15 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import { useRouter } from 'vue-router'
+import { onMounted } from 'vue'
+
+const router = useRouter()
+onMounted(() => {
+  const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  if (currentUser) {
+    router.push('/home');
+  }
+});
 </script>
 
 <template>
@@ -8,6 +18,6 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 * {
-    font-family: 'Poppins', 'sans-serif';
+  font-family: 'Poppins', 'sans-serif';
 }
 </style>
