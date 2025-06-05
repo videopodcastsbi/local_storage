@@ -3,6 +3,7 @@ import { useRouter } from 'vue-router'
 
 const router = useRouter()
 const logout = () => {
+  localStorage.removeItem('loggedInUser')
   router.push('/')
 }
 </script>
